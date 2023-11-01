@@ -7,7 +7,7 @@ audioAlert.volume = volume;
 
 // Function definition
 function isKill(text) { // if text suggest a kill
-  if (text.includes('by') && text.includes('died')) {
+  if (text.includes('by') && text.includes('died') && !text.includes('suicide')) {
     return true;
   }
   return false;
