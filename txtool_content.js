@@ -28,19 +28,21 @@ const observer = new MutationObserver((mutationsList) => {
 
     // Text added
     if (addedText) {
-      if (addedText.includes('died') || addedText.includes('explosion')) {
-        const addedElement = mutation.addedNodes[0];
+      const addedElement = mutation.addedNodes[0];
+      if (addedText.includes('died')) {
         // Format log line
         if (isKill(addedText)) {
           addedElement.style.backgroundColor = 'red';
-          addedElement.style.border = '1px solid yellow';
           // Play sound alert
           audioAlert.play();
         } else {
-          addedElement.style.border = '1px solid red';
+          addedElement.style.backgroundColor = 'grey';
         }
         // Log entry in browser console
-        console.log('[txAdmin Tool] - Alert : ' + addedText);
+        console.log('[txAdmin Tool] - Death alert : ' + addedText);
+      } else if (addedText.includes('explosion')){
+        addedElement.style.backgroundColor = 'orange';
+        console.log('[txAdmin Tool] - Explosion alert : ' + addedText);
       }
     }
   });
