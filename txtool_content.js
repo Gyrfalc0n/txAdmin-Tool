@@ -27,17 +27,19 @@ const observer = new MutationObserver((mutationsList) => {
 
     if (addedText) {
       if (addedText.includes('died') || addedText.includes('explosion')) {
-        //play sound
-        audioAlert.play();
-        console.log('[txAdmin Tool] - Alert : ' + addedText);
+        
         const addedElement = mutation.addedNodes[0];
         // format
         if (isKill(addedText)) {
           addedElement.style.backgroundColor = 'red';
           addedElement.style.border = '1px solid yellow';
+          // alert sound
+          audioAlert.play();
         } else {
           addedElement.style.border = '1px solid red';
         }
+        // log
+        console.log('[txAdmin Tool] - Alert : ' + addedText);
         
 
       }
