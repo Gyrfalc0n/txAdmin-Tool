@@ -68,7 +68,7 @@ const observer = new MutationObserver((mutationsList) => {
       } else if (addedText.includes('explosion')){
         addedElement.style.backgroundColor = color_explosion;
         console.log('[txAdmin Tool] - Explosion alert : ' + addedText);
-      } else if (addedText.includes('their vehicle') || addedText.includes('spawn')){
+      } else if (addedText.includes('their vehicle') || addedText.includes('spawn') || addedText.includes('deleted')){
         addedElement.style.backgroundColor = color_vehicle;
         console.log('[txAdmin Tool] - Vehicle modification alert : ' + addedText);
       } else if (addedText.includes('txAdmin')){
